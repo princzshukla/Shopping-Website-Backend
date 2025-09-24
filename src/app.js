@@ -17,9 +17,12 @@ app.use(express.static("public")); //in this public assets some publis assets ar
 
 import userRoutes from './routes/user.routes.js'
 import healthcheckRoutes from "./routes/healthcheck.routes.js";
+import productRoutes from "./routes/product.routes.js"
 
+app.use("api/v1/product" , productRoutes)
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/healthchecker", healthcheckRoutes);
+
 
 
 export {app};
