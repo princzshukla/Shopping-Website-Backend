@@ -19,7 +19,7 @@ const generateAccessAndRefereshTokens = async (userId) => {
 };
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { email, username, role, contactNumber, medicalHistory, password } =
+  const { email,FullName, role, contactNumber,  password } =
     req.body;
 
   if (
@@ -69,7 +69,7 @@ const loginUser = asyncHandler(async(req,res)=>{
     
    }
   const user = await User.findOne({ email})
-   if (!email) {
+   if (!user) {
     throw new ApiError(400,"no user found with this email")}
 
  const isPasswordValid = await user.isPasswordCorrect(password);
